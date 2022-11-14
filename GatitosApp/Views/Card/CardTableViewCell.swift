@@ -26,6 +26,7 @@ class CardTableViewCell: UITableViewCell {
     }
     
     private func setUpImage(){
+        self.catImageView.clipsToBounds = true
         self.catImageView.layer.cornerRadius = 17
     }
     
@@ -33,6 +34,7 @@ class CardTableViewCell: UITableViewCell {
         breedLabel.text = "Raza: \(cat.name)"
         intelligenceLabel.text = "Inteligencia: \(cat.intelligence)"
         originLabel.text = "Origen: \(cat.origin)"
+        
         if let urlString = cat.image?.url as? String {
             if let imageURL = URL(string: urlString){
                 DispatchQueue.global().async {
@@ -46,5 +48,4 @@ class CardTableViewCell: UITableViewCell {
             }
         }
     }
-    
 }
